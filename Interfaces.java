@@ -9,7 +9,7 @@ interface P{
 //class - implements -> implements
 //interface - interface -> extends
 
-class Q implements P
+class Q implements P //we only declare methods
 {
     public void show()
     {
