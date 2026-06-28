@@ -1,6 +1,6 @@
 @FunctionalInterface
 interface A {  //SAM interface
-    void show();    
+    void show(int i);    
 }
 // class B implements A
 // {
@@ -19,8 +19,7 @@ public class InterfaceTypes {
     public static void main(String[] args) {
         
     
-    A obj = () ->              //anonymous innerclass // Lamba function
-System.out.println(" in SAM interface");
-    obj.show();
+    A obj =  i -> System.out.println(" in SAM interface "+i); //anonymous innerclass // Lamba function
+    obj.show(5);
     }
 }
