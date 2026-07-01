@@ -7,6 +7,8 @@ public class ExceptionHandling {
 
         try {
             j=8/j;
+            if (j==0) 
+                throw new ArithmeticException();
             System.out.println(nums[6]);
             System.out.println(nums[1]);
         } catch (ArithmeticException e) {
