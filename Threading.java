@@ -1,42 +1,33 @@
-class outer extends Thread
-{
-    public void run()
-    {
-        for (int i = 1; i < 50; i++) {
-             System.out.println("In outer show");
-             try {
-            Thread.sleep(5);
-        } catch (InterruptedException e) {
-            // TODO: handle exception
-            e.printStackTrace();
-        }
-        }
-       
-    }
-}
+class Threading {   // every thread has a run() method
 
-class inner extends Thread {
-     public void run()
-    {
-        for (int i = 1; i < 50; i++) {
-             System.out.println("In inner show");
-        }
-    }
-    
-}
-class Threading            //in every thread have a run method
-{
     public static void main(String[] args) {
-        outer obj1 = new outer();
-        inner obj2 = new inner();
-        obj1.start();
-        try {
-            Thread.sleep(2);
-        } catch (InterruptedException e) {
-            // TODO: handle exception
-            e.printStackTrace();
-        }
 
-        obj2.start();
+        Runnable obj1 = () -> {
+            for (int i = 1; i < 5; i++) {
+                System.out.println("In outer show");
+                try {
+                    Thread.sleep(5);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+
+        Runnable obj2 = () -> {
+            for (int i = 1; i < 5; i++) {
+                System.out.println("In inner show");
+                try {
+                    Thread.sleep(5);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+
+        Thread t1 = new Thread(obj1);
+        Thread t2 = new Thread(obj2);
+
+        t1.start();
+        t2.start();
     }
 }
