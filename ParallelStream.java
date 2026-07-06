@@ -14,13 +14,15 @@ public class ParallelStream {
         int sum1 = nums.stream()
                       .map(i -> i*2)
                       .reduce(0, (c,e)->c+e);
-
+        long startPatra = System.currentTimeMillis();
         int sum2 = nums.stream()
                        .map(i-> i+2)
                        .mapToInt(i->i)
                        .sum();
-
+        Long endPara= System.currentTimeMillis();
         System.out.println(sum1+ " "+sum2);
+        System.out.println(startPatra);
+        System.out.println(endPara);
     }
     
 
